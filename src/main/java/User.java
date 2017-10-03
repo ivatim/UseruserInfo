@@ -1,50 +1,42 @@
 import org.springframework.boot.CommandLineRunner;
+import javax.persistence.*;
+import java.util.Date;
 
+@Entity
+@Table(name="User",schema = "", catalog = "javastudy")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long userId;
+    @Column(length = 100)
+    private String userName;
+    @OneToOne
+    @JoinColumn (name = "userInfoId")
+    private UserInfo userInfo;
 
-    long userId;
-    String userName;
-    UserInfo userInfo;
 
-public class UserInfo{
-
-    private Double growth;//рост
-    private Double weight;//вес
-    private Integer age;// возраст
-    private Boolean genus;//род(м/ж)
-
-//setters
-
-    public void setGrowth(Double growth) {
-        this.growth = growth;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setWeight(Double weight) {
-        this.weight = weight;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setGenus(Boolean genus) {
-        this.genus = genus;
-    }
-//getters
-    public Double getGrowth() {
-        return growth;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public Double getWeight() {
-        return weight;
+    public UserInfo getUserInfo() {
+        return userInfo;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public Boolean getGenus() {
-        return genus;
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 }
-}
+
