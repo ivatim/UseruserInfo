@@ -1,19 +1,22 @@
+package entity;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name="UserInfo",schema = "", catalog = "javastudy")
-public class UserInfo{
-
+@Table(name="UserInfo")
+public class UserInfo implements Serializable{
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userInfoId;
-    @Column
-    private Double growth;//рост
-    @Column
+    @Column(name = "height")
+    private Double height;//рост
+    @Column(name = "weight")
     private Double weight;//вес
-    @Column
+    @Column(name = "age")
     private Integer age;// возраст
-    @Column()
+    @Column(name = "sex")
     private Boolean sex;//род(м/ж)
 
 
@@ -25,12 +28,12 @@ public class UserInfo{
         this.userInfoId = userInfoId;
     }
 
-    public Double getGrowth() {
-        return growth;
+    public Double getHeight() {
+        return height;
     }
 
-    public void setGrowth(Double growth) {
-        this.growth = growth;
+    public void setHeight(Double height) {
+        this.height = height;
     }
 
     public Double getWeight() {
