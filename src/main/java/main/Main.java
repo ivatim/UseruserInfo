@@ -1,6 +1,11 @@
-import org.hibernate.Session;
+package main;
 
-public class main {
+import entity.User;
+import entity.UserInfo;
+import org.hibernate.Session;
+import util.HibernateUtil;
+
+public class Main {
     public static void main(String args[]){
 
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -13,6 +18,7 @@ public class main {
         user1.getUserInfo().setAge(24);
         user1.getUserInfo().setSex(true);
 
+        session.save(userInfo1);
         session.save(user1);
 
         session.getTransaction().commit();

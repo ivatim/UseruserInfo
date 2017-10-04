@@ -1,17 +1,20 @@
-import org.springframework.boot.CommandLineRunner;
+package entity;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.io.Serializable;
 
 @Entity
-@Table(name="User",schema = "", catalog = "javastudy")
-public class User {
+@Table(name = "User")
+public class User implements Serializable {
+
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userId;
-    @Column(length = 100)
+    @Column(name = "userName", length = 100)
     private String userName;
     @OneToOne
-    @JoinColumn (name = "userInfoId")
+    @JoinColumn(name = "userInfoId")
     private UserInfo userInfo;
 
 
