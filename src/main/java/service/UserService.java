@@ -19,8 +19,7 @@ public class UserService {
         // получаем сессию
         Session session = sessionFactory.getCurrentSession();
 
-        // Save
-        // сохраняем
+
         session.save(user);
     }
 }
