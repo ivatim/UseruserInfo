@@ -16,8 +16,10 @@ public class UserInfo {
     private Double weight;//вес
     @Column(name = "age")
     private Integer age;// возраст
+
     @Column(name = "sex")
-    private Boolean sex;//род(м/ж)
+    @Enumerated(EnumType.STRING)
+    private SexEnum sex;//род(м/ж)
 
 
     public long getUserInfoId() {
@@ -52,12 +54,10 @@ public class UserInfo {
         this.age = age;
     }
 
-    public Boolean getSex() {
-        return sex;
-    }
+    public SexEnum getSex() { return sex; }
 
-    public void setSex(Boolean sex) {
-        this.sex = sex;
-    }
+    public void setSex(SexEnum sex) { this.sex = sex; }
+
+
 }
 

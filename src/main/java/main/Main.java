@@ -1,5 +1,6 @@
 package main;
 
+import entity.SexEnum;
 import entity.User;
 import entity.UserInfo;
 import org.hibernate.Session;
@@ -16,7 +17,7 @@ public class Main {
         user1.setUserInfo(userInfo1);
         user1.setUserName("Ivan");
         user1.getUserInfo().setAge(24);
-        user1.getUserInfo().setSex(true);
+        user1.getUserInfo().setSex(SexEnum.MALE);
 
         session.save(userInfo1);
         session.save(user1);
